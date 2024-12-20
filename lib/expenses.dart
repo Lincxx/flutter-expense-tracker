@@ -34,7 +34,7 @@ class _ExpensesState extends State<Expenses> {
       body: const Column(
         children: [
           Text('Chart'),
-          Text('Expenses List'),
+          Expenses(),
         ],
       ),
     );
