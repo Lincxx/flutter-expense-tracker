@@ -39,7 +39,24 @@ class _NewExpenseState extends State<NewExpense> {
         amountIsInvalid ||
         _selectedDate == null) {
       // show error message
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Invalid input'),
+          content: const Text(
+              'Please make sure a valid, amount, date and category was entered.'),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.pop(ctx);
+                },
+                child: const Text('Okay'))
+          ],
+        ),
+      );
+      return;
     }
+    //....
   }
 
   // delete the controller when not needed anymore
@@ -126,7 +143,7 @@ class _NewExpenseState extends State<NewExpense> {
                   child: const Text('Cancel')),
               ElevatedButton(
                   onPressed: () {
-                    _sumbitFormData;
+                    _sumbitFormData();
                   },
                   child: const Text('Save expense'))
             ],
